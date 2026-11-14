@@ -1,0 +1,86 @@
+.quest-panel {
+  position: absolute;
+  top: calc(var(--topbar-h) + 8px);
+  right: 12px;
+  width: 440px;
+  max-height: calc(100% - var(--topbar-h) - 20px);
+  overflow: auto;
+  padding: 14px 16px 16px;
+  z-index: 60;
+  animation: slide-in-right 200ms ease;
+}
+.quest-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.quest-head-text {
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+}
+.quest-head h2 {
+  font-size: 24px;
+  white-space: nowrap;
+}
+.quest-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.quest-card {
+  background: var(--panel-2);
+  border: 2px solid var(--line);
+  border-radius: var(--radius);
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.quest-card.tier-orta {
+  border-left: 6px solid var(--accent);
+}
+.quest-card.tier-ileri {
+  border-left: 6px solid var(--accent-3);
+}
+.quest-card.tier-baslangic {
+  border-left: 6px solid var(--accent-2);
+}
+.quest-card.done {
+  border-color: var(--ok);
+  background: #1f3d4a;
+  animation: pop-in 300ms ease;
+}
+.quest-card-top {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.quest-card-top h3 {
+  font-size: 19px;
+  margin-right: auto;
+}
+.quest-ws {
+  font-size: 22px;
+}
+.quest-hint {
+  background: rgba(255, 212, 59, 0.12);
+  border-radius: 10px;
+  padding: 6px 10px;
+  color: #ffe9a3;
+}
+.quest-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 4px;
+}
+.quest-actions .kp,
+.quest-done {
+  margin-right: auto;
+  font-weight: 800;
+}
+.quest-done {
+  color: var(--ok);
+}

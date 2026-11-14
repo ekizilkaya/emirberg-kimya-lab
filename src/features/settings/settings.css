@@ -1,0 +1,117 @@
+.settings {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-size: 18px;
+}
+.setting-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-weight: 700;
+}
+.setting-row input[type='range'] {
+  width: 200px;
+  accent-color: var(--accent);
+}
+.switch {
+  position: relative;
+  width: 58px;
+  height: 32px;
+  border-radius: 999px;
+  border: 2px solid var(--line);
+  background: var(--panel-3);
+  cursor: pointer;
+  transition: background 150ms ease;
+  flex: none;
+}
+.switch.on {
+  background: var(--accent-2);
+  border-color: #b5f8e1;
+}
+.switch-knob {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #fff;
+  transition: transform 150ms ease;
+}
+.switch.on .switch-knob {
+  transform: translateX(26px);
+}
+.grownup-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.sep {
+  border: none;
+  border-top: 2px solid var(--line);
+  margin: 4px 0;
+}
+.hold-btn {
+  position: relative;
+  overflow: hidden;
+  justify-content: flex-start;
+  border-radius: 14px;
+}
+.hold-fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(99, 230, 190, 0.35);
+}
+.hold-label {
+  position: relative;
+}
+.grownups {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.text-input {
+  background: var(--bg-2);
+  border: 2px solid var(--line);
+  border-radius: 10px;
+  color: var(--text);
+  padding: 6px 10px;
+  font: inherit;
+  width: 180px;
+}
+.text-input:focus {
+  border-color: var(--accent);
+  outline: none;
+}
+.name-edit {
+  display: flex;
+  gap: 8px;
+}
+.danger-btn {
+  border-color: #c92a2a;
+  background: #5c1f2e;
+  align-self: flex-start;
+}
+.danger-btn:hover:not(:disabled) {
+  background: #7a2638;
+  border-color: var(--danger);
+}
+.confirm-box {
+  border: 2px solid var(--danger);
+  border-radius: 12px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.setting-msg {
+  color: var(--accent-2);
+  font-weight: 700;
+}
+.setting-msg.warn {
+  color: var(--warn);
+}

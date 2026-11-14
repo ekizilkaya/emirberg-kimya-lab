@@ -1,0 +1,156 @@
+/* ---------- Modal ---------- */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 7, 25, 0.66);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 500;
+  animation: fade-in 150ms ease;
+}
+.modal {
+  max-width: calc(100vw - 32px);
+  max-height: calc(100vh - 32px);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.modal-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 14px 6px 22px;
+}
+.modal-head h2 {
+  font-size: 26px;
+}
+.modal-body {
+  padding: 6px 22px 22px;
+  overflow: auto;
+}
+
+/* ---------- Bildirimler ---------- */
+.toasts {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 400;
+  align-items: flex-end;
+  pointer-events: none;
+}
+.toast {
+  pointer-events: auto;
+  padding: 10px 16px;
+  font-weight: 700;
+  cursor: pointer;
+  color: var(--text);
+  animation: slide-in-right 250ms ease;
+  max-width: 380px;
+  text-align: left;
+}
+
+/* ---------- Kutlama ---------- */
+.celebration {
+  position: fixed;
+  inset: 0;
+  z-index: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(5, 7, 25, 0.55);
+  cursor: pointer;
+  overflow: hidden;
+}
+.celebration-card {
+  background: radial-gradient(circle at 50% 30%, #3a3f9a, #1a1e50);
+  border: 3px solid var(--gold);
+  border-radius: 28px;
+  padding: 28px 48px;
+  text-align: center;
+  box-shadow: 0 0 60px rgba(242, 201, 76, 0.45);
+}
+.celebration-icon {
+  font-size: 96px;
+  line-height: 1.1;
+  animation: pop-in 600ms cubic-bezier(0.2, 1.6, 0.4, 1) both;
+}
+.celebration-title {
+  font-family: var(--font-head);
+  font-size: 22px;
+  color: var(--gold);
+  margin-top: 6px;
+}
+.celebration-sub {
+  font-family: var(--font-head);
+  font-size: 34px;
+  margin-bottom: 8px;
+}
+.confetti {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.confetti span {
+  position: absolute;
+  top: -20px;
+  width: 10px;
+  height: 16px;
+  border-radius: 3px;
+  animation-name: confetti-fall;
+  animation-timing-function: ease-in;
+  animation-fill-mode: both;
+}
+@keyframes confetti-fall {
+  to {
+    transform: translateY(110vh) rotate(720deg);
+  }
+}
+
+/* ---------- Tur ---------- */
+.tour {
+  position: fixed;
+  inset: 0;
+  z-index: 600;
+}
+.tour-dim {
+  position: absolute;
+  inset: 0;
+  background: rgba(5, 7, 25, 0.6);
+}
+.tour-spot {
+  position: absolute;
+  border-radius: 16px;
+  box-shadow:
+    0 0 0 4px var(--warn),
+    0 0 0 9999px rgba(5, 7, 25, 0.62);
+  transition: all 250ms ease;
+  pointer-events: none;
+}
+.tour-bubble {
+  position: absolute;
+  width: 360px;
+  padding: 16px 18px;
+  font-size: 18px;
+  border-color: var(--warn);
+}
+.tour-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: flex-end;
+  margin-top: 12px;
+}
+.tour-actions .faint {
+  margin-right: auto;
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}

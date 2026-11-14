@@ -1,0 +1,14 @@
+# Cloudflare Pages başlıkları (derlemede dist/_headers olarak kopyalanır)
+# CSP: sayfa yalnızca kendi alan adından kod/stil/font/görsel yükleyebilir ve
+# hiçbir dış adrese bağlanamaz (connect-src 'self'). Oyun verisi tarayıcıda kalır.
+
+/*
+  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self'; media-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-ancestors 'none'
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: no-referrer
+  X-Frame-Options: DENY
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()
+
+# Vite'in ürettiği dosyaların adında içerik özeti var; sonsuza dek önbelleklenebilir
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable

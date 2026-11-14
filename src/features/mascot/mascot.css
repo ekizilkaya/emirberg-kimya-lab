@@ -1,0 +1,56 @@
+.mascot-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  flex: 1;
+}
+.mascot-avatar {
+  flex: none;
+  display: flex;
+}
+.mascot-avatar.talking svg {
+  animation: wiggle 400ms ease 1;
+}
+.mascot-bubble {
+  position: relative;
+  background: #f8f9ff;
+  color: #14183a;
+  border: none;
+  border-radius: 16px;
+  padding: 8px 14px;
+  font-weight: 700;
+  font-size: 16px;
+  text-align: left;
+  max-width: 620px;
+  cursor: pointer;
+  animation: pop-in 250ms ease both;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  line-height: 1.25;
+}
+.mascot-bubble::before {
+  content: '';
+  position: absolute;
+  left: -8px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 8px solid transparent;
+  border-right-color: #f8f9ff;
+  border-left: 0;
+}
+@keyframes mol-bubble-rise {
+  0% {
+    transform: translateY(6px);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-4px);
+    opacity: 0;
+  }
+}
+.mol-bubble {
+  animation: mol-bubble-rise 2s ease-in-out infinite;
+}

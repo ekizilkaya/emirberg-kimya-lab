@@ -1,0 +1,309 @@
+.mol-page {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: 112px 1fr 300px;
+  gap: 10px;
+  padding: 10px 14px 12px;
+}
+.palette {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-content: start;
+  gap: 4px;
+  padding: 8px 6px;
+  overflow: auto;
+}
+.palette-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  background: transparent;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  padding: 4px 0 2px;
+  cursor: grab;
+  touch-action: none;
+}
+.palette-item:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: var(--line);
+}
+.palette-hands {
+  font-size: 9px;
+  letter-spacing: -2px;
+  min-height: 12px;
+}
+.atom-chip {
+  display: inline-grid;
+  place-items: center;
+  border-radius: 50%;
+  color: #10132f;
+  font-family: var(--font-head);
+  font-weight: 700;
+  box-shadow:
+    inset -3px -4px 8px rgba(0, 0, 0, 0.22),
+    0 2px 4px rgba(0, 0, 0, 0.3);
+}
+.bench-col {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+  min-height: 0;
+}
+.bench-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.formula-box {
+  background: var(--panel-2);
+  border: 2px solid var(--line);
+  border-radius: 999px;
+  padding: 4px 14px;
+  font-weight: 700;
+}
+.formula-box b {
+  font-family: var(--font-head);
+  font-size: 19px;
+  color: var(--accent-2);
+}
+.bench-help {
+  margin-left: auto;
+  max-width: 430px;
+  line-height: 1.2;
+}
+.bench {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  border-radius: 22px;
+  border: 2px solid var(--line);
+  background:
+    radial-gradient(circle at 50% 40%, rgba(77, 171, 247, 0.08), transparent 70%),
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.025) 0 1px, transparent 1px 40px),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.025) 0 1px, transparent 1px 40px),
+    #10143a;
+  overflow: hidden;
+}
+.bench.drop-over {
+  border-color: var(--accent-2);
+}
+.bench svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  touch-action: none;
+}
+.bench-empty {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 40px;
+  text-align: center;
+  color: var(--text-faint);
+  font-size: 19px;
+  font-weight: 700;
+  pointer-events: none;
+}
+.bond {
+  cursor: pointer;
+}
+.bond-line {
+  stroke: #e9ecff;
+  stroke-width: 5;
+  stroke-linecap: round;
+}
+.bond:hover .bond-line {
+  stroke: var(--warn);
+}
+.bond-line.ionic {
+  stroke: #ffd8a8;
+  stroke-dasharray: 3 7;
+  stroke-width: 5;
+}
+.bond-draft {
+  stroke: var(--warn);
+  stroke-width: 4;
+  stroke-dasharray: 6 6;
+  pointer-events: none;
+}
+.bench-atom .atom-body {
+  stroke: rgba(255, 255, 255, 0.55);
+  stroke-width: 2.5;
+  filter: drop-shadow(0 3px 4px rgba(0, 0, 0, 0.4));
+}
+.bench-atom.selected .atom-body {
+  stroke: var(--warn);
+  stroke-width: 5;
+}
+.atom-label {
+  font-family: var(--font-head);
+  font-size: 24px;
+  font-weight: 700;
+  fill: #10132f;
+}
+.atom-halo {
+  fill: none;
+  stroke: var(--accent-2);
+  stroke-width: 4;
+  opacity: 0.75;
+  filter: drop-shadow(0 0 8px var(--accent-2));
+}
+.hand {
+  cursor: crosshair;
+}
+.hand line {
+  stroke: #fff;
+  stroke-width: 4;
+  stroke-linecap: round;
+}
+.hand circle {
+  fill: #fff;
+  stroke: #10132f;
+  stroke-width: 1.5;
+}
+.hand:hover circle {
+  fill: var(--warn);
+}
+.hand.blink {
+  animation: blink 1s ease-in-out infinite;
+}
+.bench-atom {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.noble-no {
+  animation: wiggle 300ms ease 3;
+}
+.full-no {
+  animation: shake 300ms ease 2;
+}
+.charge-plus {
+  fill: #e03131;
+  stroke: #fff;
+  stroke-width: 1.5;
+}
+.charge-minus {
+  fill: #1c7ed6;
+  stroke: #fff;
+  stroke-width: 1.5;
+}
+.charge-text {
+  font-size: 12px;
+  font-weight: 800;
+  fill: #fff;
+}
+.mol-label-bg {
+  fill: rgba(99, 230, 190, 0.92);
+}
+.mol-label {
+  font-family: var(--font-head);
+  font-size: 16px;
+  fill: #06281e;
+}
+.transfer-electron {
+  fill: #74c0fc;
+  stroke: #fff;
+  stroke-width: 2;
+  filter: drop-shadow(0 0 6px #74c0fc);
+}
+.trash {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  width: 64px;
+  height: 64px;
+  border-radius: 18px;
+  border: 2px dashed var(--line);
+  display: grid;
+  place-items: center;
+  font-size: 30px;
+  background: rgba(0, 0, 0, 0.25);
+  pointer-events: none;
+  transition: transform 150ms ease;
+}
+.trash.over {
+  border-color: var(--danger);
+  background: rgba(255, 107, 107, 0.25);
+  transform: scale(1.15);
+}
+.discovery {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(560px, 90%);
+  padding: 12px 44px 12px 16px;
+  animation: pop-in 300ms ease;
+  border-color: var(--accent-2);
+}
+.discovery.new {
+  box-shadow: 0 0 30px rgba(99, 230, 190, 0.45);
+}
+.discovery-close {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+}
+.discovery-title {
+  font-family: var(--font-head);
+  font-size: 22px;
+  margin-bottom: 4px;
+}
+.formula {
+  font-family: var(--font-head);
+  color: var(--accent-2);
+}
+.caution-text {
+  color: var(--danger);
+  font-weight: 700;
+  margin-top: 4px;
+}
+
+.recipes {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-height: 0;
+}
+.recipes-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+.recipes-head h3 {
+  font-size: 21px;
+}
+.recipe-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.recipe {
+  background: var(--panel-2);
+  border-radius: 12px;
+  padding: 8px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 15px;
+  align-items: flex-start;
+}
+.recipe.known {
+  border: 1px solid rgba(99, 230, 190, 0.5);
+}
+.recipe-hint {
+  background: rgba(255, 212, 59, 0.1);
+  border-radius: 8px;
+  padding: 2px 8px;
+  font-size: 14px;
+}

@@ -1,0 +1,230 @@
+.atom-page {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  grid-template-rows: auto 1fr auto;
+  gap: 10px;
+  padding: 10px 14px 12px;
+}
+.atom-toolbar {
+  grid-column: 1;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  min-width: 0;
+}
+.atom-keys {
+  margin-left: auto;
+  min-width: 0;
+  text-align: right;
+  line-height: 1.2;
+}
+.atom-stage {
+  grid-column: 1;
+  grid-row: 2;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 24px;
+  border: 2px dashed transparent;
+  background: radial-gradient(circle at 50% 50%, rgba(77, 171, 247, 0.12), transparent 65%);
+  min-height: 0;
+  overflow: hidden;
+  transition:
+    border-color 150ms ease,
+    background 150ms ease;
+}
+.atom-stage svg {
+  max-width: 100%;
+  max-height: 100%;
+}
+.atom-stage.drop-over {
+  border-color: var(--accent-2);
+  background: radial-gradient(circle at 50% 50%, rgba(99, 230, 190, 0.18), transparent 70%);
+}
+.stage-empty {
+  position: absolute;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--text-faint);
+  font-weight: 700;
+}
+.nucleus-shake {
+  animation: shake 260ms linear infinite;
+}
+.atom-glow {
+  animation: blink 1.6s ease-in-out infinite;
+}
+.atom-celebrate {
+  animation: fade-in 300ms ease;
+}
+
+.atom-bins {
+  grid-column: 1;
+  grid-row: 3;
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  padding: 4px;
+  border-radius: 18px;
+}
+.bin {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  background: var(--panel);
+  border: 2px solid var(--line);
+  border-radius: 18px;
+  padding: 8px 14px 10px;
+  min-width: 170px;
+}
+.bin-proton {
+  border-color: rgba(255, 107, 107, 0.6);
+}
+.bin-neutron {
+  border-color: rgba(173, 181, 189, 0.6);
+}
+.bin-electron {
+  border-color: rgba(77, 171, 247, 0.6);
+}
+.bin-source {
+  background: rgba(0, 0, 0, 0.2);
+  border: 2px dashed rgba(255, 255, 255, 0.18);
+  border-radius: 14px;
+  padding: 6px 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  cursor: grab;
+  width: 100%;
+  touch-action: none;
+}
+.bin-source:hover {
+  border-color: var(--accent);
+  background: rgba(255, 255, 255, 0.05);
+}
+.bin-balls {
+  display: flex;
+  gap: 2px;
+}
+.bin-label {
+  font-family: var(--font-head);
+  font-size: 18px;
+}
+.bin-counter {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.bin-count {
+  font-family: var(--font-head);
+  font-size: 26px;
+  min-width: 36px;
+  text-align: center;
+}
+
+.atom-panel {
+  grid-column: 2;
+  grid-row: 1 / span 3;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow: auto;
+}
+.atom-id {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 76px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 14px;
+  padding: 8px 12px;
+  border: 2px solid transparent;
+  transition: border-color 200ms ease;
+}
+.atom-id.built {
+  border-color: var(--accent-2);
+  box-shadow: 0 0 20px rgba(99, 230, 190, 0.35);
+}
+.atom-id-sym {
+  font-family: var(--font-head);
+  font-size: 46px;
+  width: 64px;
+  text-align: center;
+  color: var(--accent-2);
+}
+.atom-id-name {
+  font-family: var(--font-head);
+  font-size: 26px;
+}
+.atom-stat {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+}
+.atom-stat span {
+  color: var(--text-dim);
+}
+.charge-label {
+  text-align: center;
+  font-weight: 800;
+  border-radius: 10px;
+  padding: 4px;
+  background: rgba(255, 255, 255, 0.05);
+}
+.charge-label.arti {
+  color: #ffa8a8;
+}
+.charge-label.eksi {
+  color: #a5d8ff;
+}
+.nucleus-status.ok b {
+  color: var(--ok);
+}
+.nucleus-status.bad b {
+  color: var(--warn);
+}
+.target-card {
+  margin-top: auto;
+  border: 2px solid var(--warn);
+  border-radius: 14px;
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: rgba(255, 212, 59, 0.07);
+}
+.target-card.done {
+  border-color: var(--ok);
+  background: rgba(105, 219, 124, 0.12);
+}
+.target-title {
+  font-family: var(--font-head);
+  font-size: 19px;
+}
+.target-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-weight: 700;
+}
+.target-card li.ok {
+  color: var(--ok);
+}
+.quest-hint {
+  background: rgba(255, 212, 59, 0.12);
+  border-radius: 10px;
+  padding: 6px 10px;
+  color: #ffe9a3;
+}

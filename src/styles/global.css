@@ -1,0 +1,390 @@
+:root {
+  --bg: #0b0e2a;
+  --bg-2: #11153a;
+  --panel: #191e4c;
+  --panel-2: #222a63;
+  --panel-3: #2b347a;
+  --line: #333d85;
+  --text: #f3f4ff;
+  --text-dim: #b4bbec;
+  --text-faint: #7f88c6;
+  --accent: #4dabf7;
+  --accent-2: #63e6be;
+  --accent-3: #da77f2;
+  --warn: #ffd43b;
+  --danger: #ff8787;
+  --gold: #f2c94c;
+  --ok: #69db7c;
+  --proton: #ff6b6b;
+  --neutron: #adb5bd;
+  --electron: #4dabf7;
+  --radius: 14px;
+  --radius-sm: 10px;
+  --shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+  --glow: 0 0 18px rgba(77, 171, 247, 0.45);
+  --font-head: 'Baloo 2', 'Nunito', system-ui, sans-serif;
+  --font-body: 'Nunito', system-ui, sans-serif;
+  --sidebar-w: 88px;
+  --topbar-h: 64px;
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  background: radial-gradient(1200px 800px at 70% -10%, #1d2468 0%, var(--bg) 55%) fixed, var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
+  user-select: none;
+}
+
+input,
+textarea {
+  user-select: text;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-head);
+  margin: 0;
+  line-height: 1.15;
+  font-weight: 700;
+}
+
+p {
+  margin: 0;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 3px solid var(--warn);
+  outline-offset: 2px;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--panel-3);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* ---------- Butonlar ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 2px solid var(--line);
+  background: var(--panel-2);
+  color: var(--text);
+  border-radius: 999px;
+  padding: 8px 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    transform 150ms ease,
+    background 150ms ease,
+    border-color 150ms ease,
+    box-shadow 150ms ease;
+  white-space: nowrap;
+}
+.btn:hover:not(:disabled) {
+  background: var(--panel-3);
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+.btn:active:not(:disabled) {
+  transform: translateY(1px) scale(0.98);
+}
+.btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+.btn-primary {
+  background: linear-gradient(180deg, #5cb8ff, #2f8fe0);
+  border-color: #8fd0ff;
+  color: #08152e;
+}
+.btn-primary:hover:not(:disabled) {
+  background: linear-gradient(180deg, #7cc6ff, #4aa2ee);
+  border-color: #fff;
+  box-shadow: var(--glow);
+}
+.btn-green {
+  background: linear-gradient(180deg, #7ff0cb, #38c99a);
+  border-color: #b5f8e1;
+  color: #062a1f;
+}
+.btn-green:hover:not(:disabled) {
+  background: linear-gradient(180deg, #9af5d6, #4fd8aa);
+  border-color: #fff;
+}
+.btn-ghost {
+  background: transparent;
+  border-color: transparent;
+}
+.btn-ghost:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: transparent;
+}
+.btn-big {
+  font-family: var(--font-head);
+  font-size: 22px;
+  padding: 10px 28px;
+}
+.btn-sm {
+  padding: 4px 12px;
+  font-size: 14px;
+}
+.btn-icon {
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  font-size: 20px;
+}
+.btn.active {
+  border-color: var(--warn);
+  background: #3a3270;
+  box-shadow: 0 0 0 3px rgba(255, 212, 59, 0.25);
+}
+
+.panel {
+  background: linear-gradient(180deg, var(--panel), #161a44);
+  border: 2px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border-radius: 999px;
+  padding: 2px 10px;
+  font-size: 14px;
+  font-weight: 700;
+  background: var(--panel-3);
+  border: 1px solid var(--line);
+}
+
+.dim {
+  color: var(--text-dim);
+}
+.faint {
+  color: var(--text-faint);
+}
+.small {
+  font-size: 14px;
+}
+
+.tabs {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.tab {
+  border: 2px solid var(--line);
+  background: transparent;
+  color: var(--text-dim);
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.tab:hover {
+  color: var(--text);
+  border-color: var(--accent);
+}
+.tab.active {
+  background: var(--panel-3);
+  color: var(--text);
+  border-color: var(--accent);
+}
+
+.stars {
+  display: inline-flex;
+  gap: 2px;
+  font-size: 16px;
+}
+.stars .off {
+  filter: grayscale(1) brightness(0.55);
+  opacity: 0.6;
+}
+
+/* Parçacık topları (Atom Kurucu ve tanıtım) */
+.pball {
+  display: inline-grid;
+  place-items: center;
+  border-radius: 50%;
+  color: #fff;
+  font-weight: 800;
+  line-height: 1;
+  box-shadow: inset -3px -4px 6px rgba(0, 0, 0, 0.3);
+}
+.pball-proton {
+  background: radial-gradient(circle at 35% 35%, #ffc9c9, #e03131);
+}
+.pball-neutron {
+  background: radial-gradient(circle at 35% 35%, #f1f3f5, #868e96);
+}
+.pball-electron {
+  background: radial-gradient(circle at 35% 35%, #d0ebff, #1c7ed6);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* ---------- Animasyon yardımcıları ---------- */
+@keyframes pop-in {
+  0% {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+  70% {
+    transform: scale(1.06);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes slide-in-right {
+  from {
+    transform: translateX(40px);
+    opacity: 0;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes shake {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  20% {
+    transform: translate(-3px, 1px);
+  }
+  40% {
+    transform: translate(3px, -1px);
+  }
+  60% {
+    transform: translate(-2px, -1px);
+  }
+  80% {
+    transform: translate(2px, 1px);
+  }
+}
+@keyframes wiggle {
+  0%,
+  100% {
+    transform: rotate(0);
+  }
+  25% {
+    transform: rotate(-8deg);
+  }
+  75% {
+    transform: rotate(8deg);
+  }
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes blink {
+  50% {
+    opacity: 0.25;
+  }
+}
+@keyframes float-up {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-40px);
+    opacity: 0;
+  }
+}
+
+.pop-in {
+  animation: pop-in 300ms ease both;
+}
+.shake {
+  animation: shake 300ms ease;
+}
+.wiggle {
+  animation: wiggle 300ms ease 2;
+}
+
+html[data-reduced-motion='true'] *,
+html[data-reduced-motion='true'] *::before,
+html[data-reduced-motion='true'] *::after {
+  animation-duration: 1ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 1ms !important;
+}
+
+/* ---------- Yazdırma: yalnız diploma ---------- */
+.print-only {
+  display: none;
+}
+@media print {
+  @page {
+    size: A4 landscape;
+    margin: 10mm;
+  }
+  html,
+  body,
+  #root {
+    height: auto;
+    overflow: visible;
+    background: #fff !important;
+  }
+  .app-root {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+}
